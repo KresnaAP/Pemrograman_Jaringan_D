@@ -32,14 +32,14 @@ def kirim_semua():
     status_task = dict()
     task_pool = Pool(processes=20) #2 task yang dapat dikerjakan secara simultan, dapat diset sesuai jumlah core
     catat_awal = datetime.datetime.now()
-    for k in images:
+    for k in range(len(images)):
         print(f"mengirim {images[k]}")
 
         #bagian ini merupakan bagian yang mengistruksikan eksekusi fungsi kirim gambar secara multiprocess
         texec[k] = task_pool.apply_async(func=kirim_gambar, args=(images[k],))
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main process dengan mengambil hasilnya dengan get
-    for k in images:
+    for k in range(len(images)):
         status_task[k]=texec[k].get(timeout=10)
 
     catat_akhir = datetime.datetime.now()

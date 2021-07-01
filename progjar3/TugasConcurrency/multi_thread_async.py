@@ -32,7 +32,7 @@ def kirim_gambar():
     status_task = dict()
     task = concurrent.futures.ThreadPoolExecutor(max_workers=4)
     catat_awal = datetime.datetime.now()
-    for k in images:
+    for k in range(len(images)):
         print(f"mengirim {images[k]}")
         waktu = time.time()
 
@@ -40,7 +40,7 @@ def kirim_gambar():
         texec[k] = task.submit(kirim_gambar, images[k])
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main thread dengan memanggil result
-    for k in images:
+    for k in range(len(images)):
         status_task[k]=texec[k].result()
 
     catat_akhir = datetime.datetime.now()

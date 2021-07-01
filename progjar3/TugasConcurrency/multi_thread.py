@@ -31,7 +31,7 @@ def kirim_semua():
     images = ['1.png', '2.png']
 
     catat_awal = datetime.datetime.now()
-    for k in images:
+    for k in range(len(images)):
         print(f"mengirim {images[k]}")
         waktu = time.time()
 
@@ -40,7 +40,7 @@ def kirim_semua():
         texec[k].start()
 
     #setelah menyelesaikan tugasnya, dikembalikan ke main thread dengan join
-    for k in images:
+    for k in range(len(images)):
         texec[k].join()
 
     catat_akhir = datetime.datetime.now()
