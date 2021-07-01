@@ -26,7 +26,7 @@ def kirim_gambar(image=None):
     f.close()
 
 
-def kirim_gambar():
+def kirim_semua():
     texec = dict()
     images = ['1.png', '2.png']
     status_task = dict()
@@ -52,4 +52,4 @@ def kirim_gambar():
 
 #fungsi kirim_gambar akan dijalankan secara multithreading
 if __name__=='__main__':
-    kirim_gambar()
+    kirim_semua()
